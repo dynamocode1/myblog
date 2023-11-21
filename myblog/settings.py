@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 
 
 DATABASES = {
-    'default':dj_database_url.parse(os.environ.get('myblogdb_url'))
+    'default':dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 

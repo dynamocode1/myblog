@@ -1,0 +1,65 @@
+{%extends 'base.html'%}
+{%block title%} {%endblock%}
+{%block body%} 
+
+<div class="profile-container">
+<h3 class="profile-heading" style="margin-top: 10px">{{user.username}}</h3>
+
+<p class="profile-items" style="margin-top: 10px">created {{user.profile.date|timesince}} ago</p>
+<hr/>
+
+<p class="profile-items" style="margin-top: 10px">{{user.profile.bio}}</p>
+<hr/>
+
+<p class="profile-items" style="margin-top: 10px">{{user.profile.address}}</p>
+<hr/>
+<h4 style="text-align: center;">-------------------{{user.username}} Posts------------------------</h4>
+{%for obj in posts%}
+
+		<div class = 'post-block'>
+
+			<h2 style="">{{obj.title|title}}</h2>
+			<p style="color: blue;">{{obj.body|truncatechars:400}}...</p>
+			<a style="text-decoration: none;margin-right: 50px" href="{% url 'viewprofile'%}?user={{obj.profile.user.username}}"> @{{obj.profile.user.username}}</a>
+
+			<div style="display: inline;">
+			<p style="text-align: right;display: inline;">{{obj.date|timesince}} Ago</p>
+	
+			<a href="{{obj.readmore_url}}" style="display: inline;text-align: right;margin-left: 550px;">Read More</a>
+			</div>	
+		</div>
+
+	{% endfor %}
+
+	<div style="left: 40%;position: absolute;">
+		<span>
+			{%if posts.has_previous %}
+			<a href="?user={{user.username}}&?page=1">&laquo; First</a>
+			<a href="?user={{user.username}}&?page={{posts.previous_page_number}}">previous</a>
+			{% endif %}
+		</span>
+		<span>
+			page{{posts.number}} of {{posts.paginator.num_pages}}
+		</span>
+		<span>
+		{%if posts.has_next %}
+		<a href="?user={{user.username}}&page={{posts.next_page_number}}">Next</a>
+		<a href="?user={{user.username}}&page={{posts.paginator.num_pages}}">Last &raquo;</a>
+
+		{%endif%}
+
+		
+		</span>	
+
+
+
+
+</div>
+
+
+
+</div>
+
+{%endblock%}
+
+

@@ -1,0 +1,25 @@
+{%load static%}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles.css'%}">
+	<title>{%block title%} {%endblock%}</title>
+</head>
+<body>
+
+	<nav class="nav-bar">
+		<a href="{%url 'home'%}" class='top-nav'>Home</a>
+		<a href="{%url 'profile'%}" class='top-nav'>Profile</a>
+
+		<a href="{%url 'logout'%}" class='top-nav'>Log Out</a>
+
+
+	</nav>
+	<div class="container">
+	{%block body%}
+	{%endblock%}
+</div>
+</body>
+</html>

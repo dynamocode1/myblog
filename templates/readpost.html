@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block title%} {%endblock%}
+{%block body%} 
+
+<div class = 'post-block'>
+	<h2 style="text-align: center;">{{post.title}}</h2>
+	<hr>
+	
+	<small><i>{{post.date}}</i> </small>
+	<p>@{{post.profile.user.username}}</p>
+	<hr>
+	<pp>{{post.body}}</p>
+
+
+
+</div>
+
+{%endblock%}
+
+
+ 

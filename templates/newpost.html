@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block title%} {%endblock%}
+{%block body%} 
+<style type="text/css">
+	
+
+	}
+</style>
+<div>
+
+<form method="POST" id = "post-container"> {% csrf_token %}
+		{{form.as_p}}
+
+		<input type="submit" name="" value="Post" class="form-submit">
+	</form>
+
+
+</div>
+
+{%endblock%}
+
+
